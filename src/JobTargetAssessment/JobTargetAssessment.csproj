@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="$(SpaRoot)**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <Target Name="BuildClientApp" BeforeTargets="Build" Condition="'$(Configuration)' == 'Release'">
+    <Message Text="Building React app from $(ProjectDir)$(SpaRoot)..." Importance="high" />
+    <Exec WorkingDirectory="$(ProjectDir)$(SpaRoot)" Command="npm install" Condition="!Exists('$(ProjectDir)$(SpaRoot)node_modules')" />
+    <Exec WorkingDirectory="$(ProjectDir)$(SpaRoot)" Command="npm run build" />
+  </Target>
+
+  <Target Name="PublishClientApp" BeforeTargets="Publish">
+    <Message Text="Publishing React app..." Importance="high" />
+    <Exec WorkingDirectory="$(ProjectDir)$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(ProjectDir)$(SpaRoot)" Command="npm run build" />
+  </Target>
+
+</Project>

@@ -1,0 +1,2 @@
+DELETE  http://localhost:5208/api/user/11
+content-type: application/json

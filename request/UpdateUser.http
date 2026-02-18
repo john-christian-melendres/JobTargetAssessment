@@ -1,0 +1,25 @@
+PUT http://localhost:5208/api/user
+content-type: application/json
+
+  {
+    "Id": 16,
+    "Name": "Test",
+    "UserName": "test",
+    "Email": "Sincere@april.biz",
+    "Phone": "1-770-736-8031 x56442",
+    "Website": "hildegard.org",
+    "Address": {
+      "Street": "Kulas Light",
+      "Suite": "Apt. 556",
+      "City": "Gwenborough",
+      "Geo": {
+        "Lat": "-37.3159",
+        "Lng": "81.1496"
+      }
+    },
+    "Company": {
+      "Name": "Romaguera-Crona",
+      "CatchPhrase": "Multi-layered client-server neural-net",
+      "BS": "harness real-time e-markets"
+    }
+  }

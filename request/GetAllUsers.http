@@ -1,0 +1,2 @@
+GET http://localhost:5208/api/user
+content-type: application/json
